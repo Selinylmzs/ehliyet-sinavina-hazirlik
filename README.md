@@ -67,24 +67,6 @@ Ehliyetsınavıwebsitesi/
 
 ---
 
-## 🛠️ Nasıl Çalıştırılır?
-
-Proje herhangi bir harici kütüphane veya Node.js bağımlılığı gerektirmeden bağımsız olarak çalışabilir. Çalıştırmak için aşağıdaki yöntemlerden birini kullanabilirsiniz:
-
-### Yöntem A: Doğrudan Tarayıcıda Açmak (En Basit)
-Dosya yöneticinizden `index.html` dosyasına çift tıklayarak herhangi bir tarayıcıda (Chrome, Edge, Safari vb.) doğrudan çalıştırabilirsiniz.
-
-### Yöntem B: Python ile Yerel Sunucu Kurmak (Önerilen)
-Sisteminizde Python yüklü olduğu için aşağıdaki komut yardımıyla yerel bir geliştirme sunucusu kurabilirsiniz. 
-1. Powershell veya Terminal'i açıp proje dizinine gidin.
-2. Aşağıdaki komutu çalıştırın:
-   ```bash
-   python -m http.server 8000
-   ```
-3. Tarayıcınızda `http://localhost:8000` adresine gidin.
-
----
-
 ## 📈 Veritabanı Tablo İlişkileri (ER İlişkisi)
 
 ```mermaid
