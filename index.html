@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ehliyet Sınavı Hazırlık | Çıkmış Sorular & Denemeler</title>
+  <meta name="description" content="Ehliyet sınavına hazırlık için çıkmış sınav soruları ve konu testlerini çözün. İstatistiklerinizi takip edin, kendinizi sınayın.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Dosyası -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navigasyon -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo" id="btn-logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <span class="logo-text">Ehliyet<span class="highlight">Sınavı</span></span>
+      </div>
+      
+      <nav class="nav-links">
+        <button class="nav-btn active" id="nav-home">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Ana Sayfa
+        </button>
+        <button class="nav-btn" id="nav-history">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Sınav Geçmişi
+        </button>
+        <button class="nav-btn" id="nav-admin">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          Yönetim Paneli
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Tema Değiştirici -->
+        <button id="theme-toggle" class="icon-btn" aria-label="Temayı Değiştir">
+          <!-- Sun Icon (Dark Mode active, click to light) -->
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <!-- Moon Icon (Light Mode active, click to dark) -->
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ana İçerik Alanı -->
+  <main class="app-main">
+    
+    <!-- 1. DASHBOARD GÖRÜNÜMÜ -->
+    <section id="view-dashboard" class="app-view">
+      <!-- Karşılama ve Hızlı Sınav -->
+      <div class="welcome-banner">
+        <div class="welcome-content">
+          <h1>Sürücü Belgesi Yolculuğuna Başla!</h1>
+          <p>Müfredata uygun, güncel çıkmış ehliyet sınavı sorularını çözerek sınavı tek seferde geç.</p>
+          <div class="banner-buttons">
+            <button class="primary-btn ripple" id="btn-start-random">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Rastgele Deneme Sınavı (50 Soru)
+            </button>
+            <button class="secondary-btn" id="btn-scroll-exams">
+              Yıllara Göre Çıkmış Sınavlar
+            </button>
+          </div>
+        </div>
+        <div class="welcome-image-container">
+          <svg class="car-illustration" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+            <circle cx="7" cy="17" r="2"></circle>
+            <circle cx="17" cy="17" r="2"></circle>
+            <path d="M9 17h6"></path>
+            <path d="M5 10V8a2 2 0 0 1 2-2h4"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Oyunlaştırma ve Günün Sorusu Panelleri -->
+      <div class="dashboard-widgets-grid">
+        <!-- 1. Ünvan ve Seviye Paneli -->
+        <div class="widget-card rank-widget">
+          <div class="widget-header">
+            <h3>Sürücü Seviyeniz</h3>
+            <span class="rank-badge" id="driver-rank-badge">Stajyer Sürücü 🚗</span>
+          </div>
+          <div class="widget-body">
+            <div class="xp-progress-row">
+              <span class="xp-label">Toplam Deneyim (XP)</span>
+              <span class="xp-value" id="driver-xp-text">0 / 500 XP</span>
+            </div>
+            <div class="xp-progress-bar-container">
+              <div class="xp-progress-fill" id="driver-xp-fill" style="width: 0%;"></div>
+            </div>
+            <p class="rank-tip" id="driver-rank-tip">Sınav çözerek veya soru yanıtlayarak seviye atla!</p>
+          </div>
+        </div>
+
+        <!-- 2. Günün Sorusu Paneli -->
+        <div class="widget-card daily-question-widget">
+          <div class="widget-header">
+            <h3>🚦 Günün Sorusu</h3>
+            <span class="badge" style="background: rgba(99, 102, 241, 0.15); color: var(--color-indigo);">Hemen Dene!</span>
+          </div>
+          <div class="widget-body" id="daily-q-container">
+            <p class="daily-q-text" id="daily-q-text">Soru yükleniyor...</p>
+            <div class="daily-options-grid" id="daily-q-options">
+              <!-- Dinamik butonlar -->
+            </div>
+            <div class="daily-explanation hidden" id="daily-q-explanation" style="margin-top: 1rem; padding: 1rem; border-radius: 12px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2);">
+              <span class="status-indicator" style="display: block; font-weight: bold; font-size: 0.9rem; margin-bottom: 0.3rem;">Doğru Cevap: <strong id="daily-correct-ans">B</strong></span>
+              <p id="daily-explanation-text" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Açıklama</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- İstatistik Kartları -->
+      <div class="stats-overview">
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-total-solved">0</span>
+            <span class="stat-label">Çözülen Sınav</span>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-avg-score">0%</span>
+            <span class="stat-label">Ortalama Puan</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-pass-rate">0%</span>
+            <span class="stat-label">Geçme Oranı (>=70)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Çıkmış Sınavlar Sekmesi -->
+      <div class="section-container" id="exams-section">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="title-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Yıllara Göre Çıkmış Sınavlar
+        </h2>
+        <p class="section-subtitle">Ehliyet sınavında çıkmış resmi soruları dönem dönem çözerek kendinizi deneyin.</p>
+        <div class="exams-grid" id="exams-list">
+          <!-- JS ile doldurulacak -->
+        </div>
+      </div>
+
+      <!-- Konulara Göre Testler Sekmesi -->
+      <div class="section-container" id="categories-section">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="title-icon"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          Konulara Göre Çalışma
+        </h2>
+        <p class="section-subtitle">Zayıf olduğunuz ehliyet konularına odaklanın ve özel testler çözün.</p>
+        <div class="categories-grid" id="categories-list">
+          <!-- JS ile doldurulacak -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SINAV ÇÖZME GÖRÜNÜMÜ -->
+    <section id="view-exam" class="app-view hidden" style="position: relative;">
+      
+      <!-- Sınav Duraklatma Modalı/Ekranı -->
+      <div id="exam-pause-overlay" class="hidden" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 15, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; border-radius: 24px; text-align: center; color: white;">
+        <div style="background: var(--bg-glass); border: 1px solid var(--border-glass); padding: 3rem; border-radius: 24px; box-shadow: var(--card-shadow); max-width: 400px; width: 90%;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="64" height="64" style="color: var(--color-indigo); margin-bottom: 1.5rem;"><circle cx="12" cy="12" r="10"></circle><rect x="9" y="9" width="6" height="6"></rect></svg>
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.8rem; margin-bottom: 0.8rem; color: #ffffff;">Sınav Duraklatıldı</h2>
+          <p style="color: rgba(255,255,255,0.7); font-size: 1rem; margin-bottom: 2rem;">Süreniz durduruldu. İstediğiniz zaman devam edebilirsiniz.</p>
+          <button class="primary-btn ripple" id="btn-resume-exam" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 1.1rem; padding: 0.8rem 1.5rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Sınava Devam Et
+          </button>
+        </div>
+      </div>
+
+      <div class="exam-header-bar">
+        <div class="exam-meta">
+          <h2 id="exam-title-display">2024 Mayıs Ehliyet Sınavı</h2>
+          <span class="badge" id="exam-category-display">Karma</span>
+        </div>
+        <div class="exam-timer" id="timer-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="timer-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span id="exam-timer-display">45:00</span>
+        </div>
+        <div class="exam-actions-top" style="display: flex; gap: 0.5rem;">
+          <button class="secondary-btn" id="btn-pause-exam" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+            Duraklat
+          </button>
+          <button class="danger-btn-outline" id="btn-quit-exam">Sınavı Bitir</button>
+        </div>
+      </div>
+
+      <div class="exam-body-layout">
+        <!-- Sol Bölüm: Soru Kartı -->
+        <div class="exam-main-panel">
+          <div class="question-card" id="active-question-card">
+            <div class="question-card-header">
+              <span class="question-number">Soru <span id="current-q-num">1</span> / <span id="total-q-num">50</span></span>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="question-topic-badge" id="question-category-tag">Trafik ve Çevre</span>
+                <button class="icon-btn-small" id="btn-speak-question" title="Soruyu Sesli Oku" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border-glass); background: var(--bg-secondary); color: var(--text-primary); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Soru Metni -->
+            <div class="question-body">
+              <p class="question-text" id="question-text-display">Soru metni yükleniyor...</p>
+              
+              <!-- Varsa Soru Resmi -->
+              <div class="question-image-wrapper hidden" id="question-image-container">
+                <img src="" alt="Soru Görseli" id="question-image">
+              </div>
+            </div>
+
+            <!-- Seçenekler -->
+            <div class="question-options" id="options-container">
+              <button class="option-btn" data-option="A">
+                <span class="option-letter">A</span>
+                <span class="option-text" id="opt-text-a">Seçenek A</span>
+              </button>
+              <button class="option-btn" data-option="B">
+                <span class="option-letter">B</span>
+                <span class="option-text" id="opt-text-b">Seçenek B</span>
+              </button>
+              <button class="option-btn" data-option="C">
+                <span class="option-letter">C</span>
+                <span class="option-text" id="opt-text-c">Seçenek C</span>
+              </button>
+              <button class="option-btn" data-option="D">
+                <span class="option-letter">D</span>
+                <span class="option-text" id="opt-text-d">Seçenek D</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sınav Alt Kontrolleri -->
+          <div class="exam-navigation-controls">
+            <button class="secondary-btn" id="btn-prev-question">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              Önceki Soru
+            </button>
+            
+            <button class="secondary-btn" id="btn-clear-answer">Seçimi Temizle</button>
+
+            <button class="primary-btn" id="btn-next-question">
+              Sonraki Soru
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-iconRight"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sağ Bölüm: Soru Navigatörü -->
+        <div class="exam-navigator-panel">
+          <h3>Soru Gezgini</h3>
+          <div class="navigator-grid" id="question-navigator-grid">
+            <!-- JS ile butonlar yüklenecek -->
+          </div>
+          <div class="navigator-legend">
+            <div class="legend-item"><span class="dot active"></span><span>Aktif</span></div>
+            <div class="legend-item"><span class="dot answered"></span><span>Cevaplandı</span></div>
+            <div class="legend-item"><span class="dot empty"></span><span>Boş</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SINAV SONUCU GÖRÜNÜMÜ -->
+    <section id="view-results" class="app-view hidden">
+      <div class="result-card">
+        <div class="result-banner" id="result-status-banner">
+          <h2 id="result-status-title">Tebrikler! Geçtiniz.</h2>
+          <p id="result-status-subtitle">Ehliyet sınavı baraj puanını başarıyla aştınız.</p>
+        </div>
+
+        <div class="result-content-layout">
+          <!-- Skor Çemberi ve Ana İstatistikler -->
+          <div class="result-summary">
+            <div class="score-circle-container">
+              <svg class="score-ring" viewBox="0 0 120 120">
+                <circle class="score-ring-bg" cx="60" cy="60" r="50"></circle>
+                <circle class="score-ring-progress" id="score-ring-progress" cx="60" cy="60" r="50"></circle>
+              </svg>
+              <div class="score-value">
+                <span class="number" id="result-score">85</span>
+                <span class="label">Puan</span>
+              </div>
+            </div>
+            
+            <div class="quick-stats-grid">
+              <div class="q-stat-item green">
+                <span class="q-stat-label">Doğru</span>
+                <span class="q-stat-val" id="result-correct">17</span>
+              </div>
+              <div class="q-stat-item red">
+                <span class="q-stat-label">Yanlış</span>
+                <span class="q-stat-val" id="result-wrong">3</span>
+              </div>
+              <div class="q-stat-item gray">
+                <span class="q-stat-label">Boş</span>
+                <span class="q-stat-val" id="result-blank">0</span>
+              </div>
+              <div class="q-stat-item info">
+                <span class="q-stat-label">Süre</span>
+                <span class="q-stat-val" id="result-duration">12:34</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kategori Bazlı Detaylar -->
+          <div class="result-category-breakdown">
+            <h3>Konu Bazlı Başarı Analizi</h3>
+            <div class="category-stats-list" id="result-categories-breakdown">
+              <!-- Dinamik yüklenecek -->
+            </div>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="primary-btn" id="btn-review-exam">Soruları ve Çözümleri İncele</button>
+          <button class="secondary-btn" id="btn-result-home">Ana Sayfaya Dön</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SORU İNCELEME GÖRÜNÜMÜ -->
+    <section id="view-review" class="app-view hidden">
+      <div class="exam-header-bar">
+        <div class="exam-meta">
+          <h2>Sınav Soruları İnceleme</h2>
+          <span class="badge" id="review-exam-title">2024 Mayıs Ehliyet Sınavı</span>
+        </div>
+        <button class="primary-btn" id="btn-close-review">İncelemeyi Bitir</button>
+      </div>
+
+      <div class="exam-body-layout">
+        <!-- Sol Bölüm: İnceleme Soru Kartı -->
+        <div class="exam-main-panel">
+          <div class="question-card" id="review-question-card">
+            <div class="question-card-header">
+              <span class="question-number">Soru <span id="review-q-num">1</span> / <span id="review-total-q-num">50</span></span>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="question-topic-badge" id="review-category-tag">İlk Yardım</span>
+                <button class="icon-btn-small" id="btn-speak-review-question" title="Soruyu Sesli Oku" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border-glass); background: var(--bg-secondary); color: var(--text-primary); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                </button>
+                <span class="answer-badge" id="review-answer-status">Doğru</span>
+              </div>
+            </div>
+
+            <!-- Soru Metni -->
+            <div class="question-body">
+              <p class="question-text" id="review-text-display">Soru metni yükleniyor...</p>
+              
+              <!-- Varsa Soru Resmi -->
+              <div class="question-image-wrapper hidden" id="review-image-container">
+                <img src="" alt="Soru Görseli" id="review-image">
+              </div>
+            </div>
+
+            <!-- Seçenekler (Salt Okunur / Renklendirilmiş) -->
+            <div class="question-options disabled" id="review-options-container">
+              <button class="option-btn" data-option="A">
+                <span class="option-letter">A</span>
+                <span class="option-text" id="rev-opt-text-a">Seçenek A</span>
+              </button>
+              <button class="option-btn" data-option="B">
+                <span class="option-letter">B</span>
+                <span class="option-text" id="rev-opt-text-b">Seçenek B</span>
+              </button>
+              <button class="option-btn" data-option="C">
+                <span class="option-letter">C</span>
+                <span class="option-text" id="rev-opt-text-c">Seçenek C</span>
+              </button>
+              <button class="option-btn" data-option="D">
+                <span class="option-letter">D</span>
+                <span class="option-text" id="rev-opt-text-d">Seçenek D</span>
+              </button>
+            </div>
+
+            <!-- Çözüm Açıklaması Paneli -->
+            <div class="explanation-box" id="review-explanation-box">
+              <div class="explanation-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="explanation-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                Çözüm Açıklaması
+              </div>
+              <p class="explanation-text" id="review-explanation-text">Burada sorunun detaylı çözümü yer alacak.</p>
+            </div>
+          </div>
+
+          <!-- İnceleme Alt Kontrolleri -->
+          <div class="exam-navigation-controls">
+            <button class="secondary-btn" id="btn-prev-review">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              Önceki Soru
+            </button>
+            
+            <span class="review-status-label" id="review-status-indicator">Senin Cevabın: A | Doğru Cevap: C</span>
+
+            <button class="primary-btn" id="btn-next-review">
+              Sonraki Soru
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-iconRight"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sağ Bölüm: İnceleme Soru Navigatörü -->
+        <div class="exam-navigator-panel">
+          <h3>Soru İnceleme</h3>
+          <div class="navigator-grid" id="review-navigator-grid">
+            <!-- JS ile butonlar yüklenecek -->
+          </div>
+          <div class="navigator-legend">
+            <div class="legend-item"><span class="dot success"></span><span>Doğru</span></div>
+            <div class="legend-item"><span class="dot danger"></span><span>Yanlış</span></div>
+            <div class="legend-item"><span class="dot empty"></span><span>Boş</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SINAV GEÇMİŞİ GÖRÜNÜMÜ -->
+    <section id="view-history" class="app-view hidden">
+      <div class="section-container">
+        <div class="section-header-row">
+          <div>
+            <h2 class="section-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="title-icon"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="10"></circle></svg>
+              Çözdüğünüz Sınavlar
+            </h2>
+            <p class="section-subtitle">Daha önce tamamladığınız denemeler ve çıkmış sınav sonuçlarınız.</p>
+          </div>
+          <button class="danger-btn-outline" id="btn-clear-history">Tüm Geçmişi Temizle</button>
+        </div>
+
+        <!-- Sınav Geçmiş Listesi -->
+        <div class="history-list-wrapper" id="history-list-container">
+          <div class="empty-state" id="history-empty-state">
+            <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <p>Henüz kayıtlı bir sınav geçmişiniz bulunmuyor.</p>
+            <button class="primary-btn" id="btn-history-start-exam">İlk Denemeni Başlat</button>
+          </div>
+
+          <table class="history-table hidden" id="history-table">
+            <thead>
+              <tr>
+                <th>Sınav Adı</th>
+                <th>Tarih</th>
+                <th>Süre</th>
+                <th>Doğru/Yanlış/Boş</th>
+                <th>Puan</th>
+                <th>Durum</th>
+                <th>Aksiyon</th>
+              </tr>
+            </thead>
+            <tbody id="history-table-body">
+              <!-- JS ile yüklenecek -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. YÖNETİM PANELİ GÖRÜNÜMÜ -->
+    <section id="view-admin" class="app-view hidden">
+      <div class="admin-container">
+        <div class="admin-header-row">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="title-icon"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            Sınav ve Soru Yönetim Paneli
+          </h2>
+        </div>
+        <p class="section-subtitle">Yeni çıkmış ehliyet sınavlarını ve sorularını sisteminize ekleyin.</p>
+        
+        <div class="admin-grid-layout">
+          <!-- Sol Kolon: Sınav Tanımlama -->
+          <div class="admin-card-panel">
+            <h3>Yeni Sınav Dönemi Tanımla</h3>
+            <form id="admin-exam-form" class="admin-form">
+              <div class="form-group">
+                <label for="exam-title-input">Sınav Adı</label>
+                <input type="text" id="exam-title-input" placeholder="Örn: 2024 Ekim Ehliyet Sınavı" required>
+              </div>
+              <div class="form-row-custom">
+                <div class="form-group">
+                  <label for="exam-year-input">Sınav Yılı</label>
+                  <input type="number" id="exam-year-input" placeholder="Örn: 2024" min="2020" max="2030" required>
+                </div>
+                <div class="form-group">
+                  <label for="exam-month-input">Sınav Ayı</label>
+                  <select id="exam-month-input" required>
+                    <option value="">Seçiniz...</option>
+                    <option value="Ocak">Ocak</option>
+                    <option value="Şubat">Şubat</option>
+                    <option value="Mart">Mart</option>
+                    <option value="Nisan">Nisan</option>
+                    <option value="Mayıs">Mayıs</option>
+                    <option value="Haziran">Haziran</option>
+                    <option value="Temmuz">Temmuz</option>
+                    <option value="Ağustos">Ağustos</option>
+                    <option value="Eylül">Eylül</option>
+                    <option value="Ekim">Ekim</option>
+                    <option value="Kasım">Kasım</option>
+                    <option value="Aralık">Aralık</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exam-duration-input">Sınav Süresi (Dakika)</label>
+                <input type="number" id="exam-duration-input" value="45" min="5" max="120" required>
+              </div>
+              <button type="submit" class="primary-btn">Sınav Dönemi Ekle</button>
+            </form>
+
+            <div class="custom-exams-list-box">
+              <h4>Eklenen Özel Sınavlar</h4>
+              <ul class="custom-list" id="admin-custom-exams-list">
+                <!-- Dinamik listelenecek -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- Sağ Kolon: Soru Ekleme -->
+          <div class="admin-card-panel">
+            <h3>Sınava Soru Ekle</h3>
+            <form id="admin-question-form" class="admin-form">
+              <div class="form-group">
+                <label for="question-exam-select">Hedef Sınav Dönemi</label>
+                <select id="question-exam-select" required>
+                  <option value="">Seçiniz...</option>
+                  <!-- Dinamik sınavlar yüklenecek -->
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="question-category-select">Soru Kategorisi</label>
+                <select id="question-category-select" required>
+                  <option value="İlk Yardım">İlk Yardım</option>
+                  <option value="Trafik ve Çevre">Trafik ve Çevre</option>
+                  <option value="Motor ve Araç Tekniği">Motor ve Araç Tekniği</option>
+                  <option value="Trafik Adabı">Trafik Adabı</option>
+                  <option value="Ehliyet Türleri">Ehliyet Türleri</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="question-text-input">Soru Metni</label>
+                <textarea id="question-text-input" rows="3" placeholder="Soru açıklamasını buraya yazın..." required></textarea>
+              </div>
+
+              <div class="form-row-custom">
+                <div class="form-group">
+                  <label for="opt-a-input">A Şıkkı</label>
+                  <input type="text" id="opt-a-input" required>
+                </div>
+                <div class="form-group">
+                  <label for="opt-b-input">B Şıkkı</label>
+                  <input type="text" id="opt-b-input" required>
+                </div>
+              </div>
+
+              <div class="form-row-custom">
+                <div class="form-group">
+                  <label for="opt-c-input">C Şıkkı</label>
+                  <input type="text" id="opt-c-input" required>
+                </div>
+                <div class="form-group">
+                  <label for="opt-d-input">D Şıkkı</label>
+                  <input type="text" id="opt-d-input" required>
+                </div>
+              </div>
+
+              <div class="form-row-custom">
+                <div class="form-group">
+                  <label for="correct-opt-select">Doğru Cevap</label>
+                  <select id="correct-opt-select" required>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="question-image-url-input">Resim URL (Opsiyonel)</label>
+                  <input type="text" id="question-image-url-input" placeholder="Örn: image.jpg">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="explanation-input">Açıklamalı Çözüm (Opsiyonel)</label>
+                <textarea id="explanation-input" rows="2" placeholder="Sorunun doğru cevabının açıklamasını buraya yazın..."></textarea>
+              </div>
+
+              <button type="submit" class="primary-btn">Soruyu Sınava Ekle</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Alt Bölüm: JSON Dışa Aktarma / İçe Aktarma -->
+        <div class="admin-card-panel data-management-box">
+          <h3>Veri Yönetimi (Yedekleme ve Entegrasyon)</h3>
+          <p>Eklediğiniz sorular tarayıcınızın belleğinde saklanır. Bunları yedeklemek veya <code>questions_data.js</code> dosyasına entegre etmek için dışa aktarabilirsiniz.</p>
+          <div class="data-actions-row">
+            <button class="secondary-btn" id="btn-export-data">Tüm Özel Verileri JSON Olarak Kopyala</button>
+            <button class="secondary-btn" id="btn-import-data-prompt">JSON Verisi İçe Aktar</button>
+            <button class="danger-btn-outline" id="btn-clear-custom-data">Tüm Özel Sınavları Sil</button>
+          </div>
+          <textarea id="data-share-area" class="hidden" rows="5" readonly style="width:100%; margin-top:1rem; font-family:monospace; font-size:0.8rem; background:var(--bg-secondary); color:var(--text-primary); border:1px solid var(--border-glass); border-radius:8px; padding:0.8rem;"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Yasal Uyarı / Sorumluluk Reddi (Disclaimer) Footer -->
+    <footer class="site-info-footer">
+      <div class="footer-content">
+        <p id="footer-copyright" style="cursor: pointer; user-select: none;">© 2026 Ehliyet Sınav Hazırlık Platformu. Tüm hakları saklıdır.</p>
+        <p class="disclaimer-text"><strong>Yasal Uyarı / Sorumluluk Reddi:</strong> Bu platformda sunulan tüm sorular, Milli Eğitim Bakanlığı (MEB) tarafından yayınlanmış geçmiş sınav müfredatlarından esinlenilerek eğitim, pratik ve pekiştirme amaçlı derlenmiş veya özgünleştirilmiştir. Platformumuzun Milli Eğitim Bakanlığı ile hiçbir resmi veya ticari bağı bulunmamaktadır. Sistemde yer alan yeni sınav ve soru ekleme paneli, tamamen tarayıcınızın yerel depolama (localStorage) alanını kullanan istemci taraflı (client-side) bir özelliktir. Telif hakkına konu olabilecek herhangi bir içerik merkezi sunucularımızda saklanmamakta ve barındırılmamaktadır.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Mobil Alt Nav Bar (Mobile Navigation) -->
+  <footer class="mobile-nav">
+    <button class="mobile-nav-btn active" id="m-nav-home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Ana Sayfa</span>
+    </button>
+    <button class="mobile-nav-btn" id="m-nav-history">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <span>Geçmiş</span>
+    </button>
+    <button class="mobile-nav-btn" id="m-nav-admin">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+      <span>Yönetim</span>
+    </button>
+  </footer>
+
+  <!-- JS Dosyaları -->
+  <script src="questions_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
