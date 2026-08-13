@@ -1,4 +1,4 @@
-# Ehliyet Sınavı Hazırlık Web Sitesi
+# Ehliyet Sınavına Hazırlık Web Sitesi
 
 Bu proje, kullanıcıların çıkmış ehliyet sınav sorularını (yıl ve ay bazında kategorize edilmiş olarak) çözebilecekleri, konu kategorilerine göre (İlk Yardım, Trafik, Motor, Trafik Adabı) çalışabilecekleri, sınav sürelerini ve başarı oranlarını modern bir grafik arayüzle takip edebilecekleri, mobil uyumlu ve şık bir Single Page Application (SPA) web uygulamasıdır.
 
