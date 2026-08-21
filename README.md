@@ -37,7 +37,7 @@ Uygulama, veritabanı yapısı (SQL şemaları ve Express.js API rotaları) dahi
 - **Yapay Zeka Destekli Sesli Okuma:** Sınav veya inceleme ekranında soruların ve şıkların tarayıcının yerel TTS motoru (`Web Speech API`) kullanılarak sesli okunabilmesi.
 - **Oyunlaştırma (Gamification):** Çözülen her sınav ve soru sonucunda kazanılan XP puanları ile seviye atlama (Stajyer Sürücü -> Direksiyon Ustası).
 - **Günün Sorusu:** Her gün tarih tabanlı olarak değişen ve kullanıcıyı her gün test eden deterministik algoritmalı günlük soru widget'ı.
-- **Dinamik 550 Soru Havuzu:** RAM üzerinde çalışan dinamik veri çoğaltma (data hydration) motoru sayesinde ham soruları 550 adet benzersiz soruya çıkaran ve tüm konu testlerini ile çıkmış sınavları otomatik 50 soruya tamamlayan sınav motoru.
+- **Dinamik Soru Havuzu:** RAM üzerinde çalışan dinamik veri çoğaltma (data hydration) motoru sayesinde ham soruları benzersiz soruya çıkaran ve tüm konu testleri ile çıkmış sınavları otomatik 50 soruya tamamlayan sınav motoru.
 
 ### 3. Backend & Veritabanı Yapısı (`/backend` klasöründe)
 - **SQL Şeması (`backend/database.sql`):** İlişkisel veritabanı tasarımı (SQLite, PostgreSQL, MySQL uyumlu). Kullanıcılar, kategoriler, sınavlar, sorular, kullanıcı sınavları ve kullanıcı cevapları arasındaki ilişkileri tutar.
