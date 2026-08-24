@@ -1278,7 +1278,7 @@ const QUESTIONS_DATA = [
       id: currentId++,
       exam: getNextExam(),
       category: cat,
-      question: `${item.q} (Pratik Soru v-${currentId})`,
+      question: item.q,
       options: item.o,
       correct: item.c,
       explanation: item.e
