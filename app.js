@@ -140,10 +140,10 @@ function toggleTheme() {
 
 // --- ROUTER (SAYFA GEÇİŞLERİ) ---
 function initRouter() {
-  const views = ["dashboard", "exam", "results", "review", "history", "admin"];
+  const views = ["dashboard", "exams", "exam", "results", "review", "history", "admin"];
   
   // SPA yönlendirme fonksiyonu
-  window.navigateTo = (viewName, isExamsScroll = false) => {
+  window.navigateTo = (viewName) => {
     // Yönetim paneli şifre koruması
     if (viewName === "admin") {
       const navAdminBtn = document.getElementById("nav-admin");
@@ -177,15 +177,15 @@ function initRouter() {
     if (activeEl) activeEl.classList.remove("hidden");
     
     // Navigasyon butonlarını güncelle
-    updateNavButtons(viewName, isExamsScroll);
+    updateNavButtons(viewName);
     
     // Geçmiş sayfası açıldığında listeyi yenile
     if (viewName === "history") {
       renderHistoryList();
     }
     
-    // Dashboard açıldığında istatistikleri yenile
-    if (viewName === "dashboard") {
+    // Dashboard veya Çıkmış Sınavlar açıldığında verileri yenile
+    if (viewName === "dashboard" || viewName === "exams") {
       loadStatsFromStorage();
       renderDashboardData();
     }
@@ -196,14 +196,12 @@ function initRouter() {
       renderAdminExamDropdown();
     }
     
-    // Sayfanın en üstüne odaklan (Eğer sınavlar alanına kaydırılmayacaksa)
-    if (!isExamsScroll) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    // Sayfanın en üstüne odaklan
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 }
 
-function updateNavButtons(activeView, isExamsScroll = false) {
+function updateNavButtons(activeView) {
   const navHome = document.getElementById("nav-home");
   const navHistory = document.getElementById("nav-history");
   const navAdmin = document.getElementById("nav-admin");
@@ -220,13 +218,11 @@ function updateNavButtons(activeView, isExamsScroll = false) {
   
   // Set Active
   if (activeView === "dashboard") {
-    if (isExamsScroll) {
-      if (navExams) navExams.classList.add("active");
-      if (mNavExams) mNavExams.classList.add("active");
-    } else {
-      if (navHome) navHome.classList.add("active");
-      if (mNavHome) mNavHome.classList.add("active");
-    }
+    if (navHome) navHome.classList.add("active");
+    if (mNavHome) mNavHome.classList.add("active");
+  } else if (activeView === "exams") {
+    if (navExams) navExams.classList.add("active");
+    if (mNavExams) mNavExams.classList.add("active");
   } else if (activeView === "history") {
     if (navHistory) navHistory.classList.add("active");
     if (mNavHistory) mNavHistory.classList.add("active");
@@ -1263,13 +1259,7 @@ function setupEventListeners() {
   
   const navExams = document.getElementById("nav-exams");
   if (navExams) {
-    navExams.addEventListener("click", () => {
-      navigateTo("dashboard", true);
-      setTimeout(() => {
-        const el = document.getElementById("exams-section");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    });
+    navExams.addEventListener("click", () => navigateTo("exams"));
   }
   
   const navAdmin = document.getElementById("nav-admin");
@@ -1283,13 +1273,7 @@ function setupEventListeners() {
   
   const mNavExams = document.getElementById("m-nav-exams");
   if (mNavExams) {
-    mNavExams.addEventListener("click", () => {
-      navigateTo("dashboard", true);
-      setTimeout(() => {
-        const el = document.getElementById("exams-section");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    });
+    mNavExams.addEventListener("click", () => navigateTo("exams"));
   }
   
   const mNavAdmin = document.getElementById("m-nav-admin");
@@ -1303,11 +1287,11 @@ function setupEventListeners() {
   // Sınav İşlemleri
   document.getElementById("btn-start-random").addEventListener("click", startRandomExam);
   
-  // Dashboard Scroll Butonu
-  const scrollExamsBtn = document.getElementById("btn-scroll-exams");
-  if (scrollExamsBtn) {
-    scrollExamsBtn.addEventListener("click", () => {
-      document.getElementById("exams-section").scrollIntoView({ behavior: "smooth" });
+  // Dashboard Çıkmış Sınavlar Butonu
+  const viewExamsBtn = document.getElementById("btn-view-exams");
+  if (viewExamsBtn) {
+    viewExamsBtn.addEventListener("click", () => {
+      navigateTo("exams");
     });
   }
   
