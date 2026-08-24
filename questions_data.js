@@ -812,6 +812,96 @@ const QUESTIONS_DATA = [
     options: {"A": "Nezaketli ve akılcı davranış", "B": "Fırsatçılık, kul hakkı ve trafik adabı ihlali", "C": "Yol yardımı", "D": "Acil durum hakkı"},
     correct: "B",
     explanation: "Acil durum araçlarının açtığı yoldan faydalanıp diğer bekleyenlerin önüne geçmek kul hakkını ve trafik adabını ihlal eder."
+  },
+  {
+    id: 91,
+    exam: {"year": 2026, "month": "Temmuz", "title": "2026 Temmuz Ehliyet Sınavı"},
+    category: "İlk Yardım",
+    question: "Çocuklarda yapılan dış kalp masajında göğüs kemiğine uygulanan bası derinliği kaç santimetre olmalıdır?",
+    options: {"A": "2", "B": "5", "C": "8", "D": "10"},
+    correct: "B",
+    explanation: "Çocuklarda (1-8 yaş) ve yetişkinlerde dış kalp masajı bası derinliği 5 cm olmalıdır."
+  },
+  {
+    id: 92,
+    exam: {"year": 2026, "month": "Temmuz", "title": "2026 Temmuz Ehliyet Sınavı"},
+    category: "Trafik ve Çevre",
+    question: "Taşıt yolu üzerinde çizilen yol çizgilerinden hangisi öndeki aracı geçmenin yasak olduğunu bildirir?",
+    options: {"A": "Kesik şerit çizgisi", "B": "Yan yana iki devamlı çizgi", "C": "Yaya geçidi çizgisi", "D": "Kesik ve devamlı şerit çizgisi"},
+    correct: "B",
+    explanation: "Yan yana çizilmiş iki devamlı çizgi, her iki yöndeki araçların da karşı şeride geçmesinin ve sollama yapmasının kesinlikle yasak olduğunu bildirir."
+  },
+  {
+    id: 93,
+    exam: {"year": 2026, "month": "Temmuz", "title": "2026 Temmuz Ehliyet Sınavı"},
+    category: "Motor ve Araç Tekniği",
+    question: "Motor çalışırken gösterge panelinde yağ ikaz lambasının yanması durumunda sürücü ne yapmalıdır?",
+    options: {"A": "Motor devrini artırmalıdır", "B": "Farları açıp kapatmalıdır", "C": "Aracı güvenli bir yerde durdurup motoru hemen kapatmalıdır", "D": "Yoluna devam etmelidir"},
+    correct: "C",
+    explanation: "Yağ lambası motorun yağlama yapmadığını gösterir. Motorun yatak sarmasını engellemek için araç derhal durdurulmalı ve motor stop edilmelidir."
+  },
+  {
+    id: 94,
+    exam: {"year": 2026, "month": "Temmuz", "title": "2026 Temmuz Ehliyet Sınavı"},
+    category: "Trafik Adabı",
+    question: "Trafikte sürücülerin birbirine karşı saygılı ve sabırlı davranması aşağıdakilerden hangisini azaltır?",
+    options: {"A": "Kaza riskini ve stresi", "B": "Trafik akışını", "C": "Sürücülerin dikkatini", "D": "Yakıt tasarrufunu"},
+    correct: "A",
+    explanation: "Trafikte karşılıklı saygı ve sabır, gerginliği ve stresi azaltarak kaza riskini minimuma indirir."
+  },
+  {
+    id: 95,
+    exam: {"year": 2026, "month": "Temmuz", "title": "2026 Temmuz Ehliyet Sınavı"},
+    category: "Ehliyet Türleri",
+    question: "\"B\" sınıfı sürücü belgesi ile aşağıdaki araçlardan hangisi kullanılamaz?",
+    options: {"A": "Otomobil", "B": "Kamyonet", "C": "Traktör", "D": "Minibüs (D1 sınıfı)"},
+    correct: "D",
+    explanation: "B sınıfı ehliyet otomobil ve kamyonet kullanır ancak sürücü dahil 17 koltuğa kadar olan minibüsleri kullanmak için D1 sınıfı ehliyet gereklidir."
+  },
+  {
+    id: 96,
+    exam: {"year": 2026, "month": "Ağustos", "title": "2026 Ağustos Ehliyet Sınavı"},
+    category: "İlk Yardım",
+    question: "Kanamanın olduğu damar üzerine parmakla basılarak uygulanan ilk yardım yönteminin temel amacı nedir?",
+    options: {"A": "Damarı genişletmek", "B": "Kan akışını yavaşlatmak ve durdurmak", "C": "Yaralının acısını azaltmak", "D": "Yarayı temizlemek"},
+    correct: "B",
+    explanation: "Basınç noktasından uygulanan baskının temel amacı, kanayan damarı kemik arasına sıkıştırarak kan akışını yavaşlatmak veya tamamen durdurmaktır."
+  },
+  {
+    id: 97,
+    exam: {"year": 2026, "month": "Ağustos", "title": "2026 Ağustos Ehliyet Sınavı"},
+    category: "Trafik ve Çevre",
+    question: "Uyuşturucu veya uyarıcı madde aldığı tespit edilen sürücüler hakkında aşağıdaki işlemlerden hangisi uygulanır?",
+    options: {"A": "Sürücü belgesi 6 ay süreyle geri alınır", "B": "Sürücü belgesi 5 yıl süreyle geri alınır ve idari para cezası verilir", "C": "Sadece para cezası verilir", "D": "Araç kullanmasına izin verilir"},
+    correct: "B",
+    explanation: "Uyuşturucu veya uyarıcı madde kullanarak araç kullananların sürücü belgeleri 5 yıl süreyle geri alınır ve idari para cezası uygulanır."
+  },
+  {
+    id: 98,
+    exam: {"year": 2026, "month": "Ağustos", "title": "2026 Ağustos Ehliyet Sınavı"},
+    category: "Motor ve Araç Tekniği",
+    question: "Dört zamanlı bir motorda emme zamanında silindire aşağıdakilerden hangisi alınır?",
+    options: {"A": "Egzoz gazı", "B": "Motor yağı", "C": "Benzinli motorlarda yakıt-hava karışımı", "D": "Sadece su"},
+    correct: "C",
+    explanation: "Emme zamanında benzinli motorlarda yakıt-hava karışımı, dizel motorlarda ise sadece temiz hava silindire emilir."
+  },
+  {
+    id: 99,
+    exam: {"year": 2026, "month": "Ağustos", "title": "2026 Ağustos Ehliyet Sınavı"},
+    category: "Trafik Adabı",
+    question: "Kendi şeridinde giderken arkasından gelen ambulansın siren sesini duyan sürücünün 'Fermuar Yöntemiyle' sağa ve sola açılarak yol vermesi hangi değere örnektir?",
+    options: {"A": "Bencilliğe", "B": "Empati ve toplumsal sorumluluğa", "C": "Sabırsızlığa", "D": "Saygısızlığa"},
+    correct: "B",
+    explanation: "Ambulansa fermuar yöntemiyle yol açmak, başkalarının canına saygı göstermeye ve empati/toplumsal sorumluluk bilincine işarettir."
+  },
+  {
+    id: 100,
+    exam: {"year": 2026, "month": "Ağustos", "title": "2026 Ağustos Ehliyet Sınavı"},
+    category: "Ehliyet Türleri",
+    question: "16 yaşını dolduran bir kişi aşağıdaki ehliyet sınıflarından hangisine başvurabilir?",
+    options: {"A": "B", "B": "A2", "C": "A1", "D": "C"},
+    correct: "C",
+    explanation: "Karayolları Trafik Yönetmeliğine göre 16 yaşını dolduranlar A1 (125 cc'ye kadar motosiklet) ve M (moped) sınıflarına başvurabilir."
   }
 ];
 
@@ -819,8 +909,10 @@ const QUESTIONS_DATA = [
 // --- DİNAMİK SORU ÜRETİCİSİ (90 Soruyu 550 Soruya Tamamlar) ---
 // ==========================================================================
 (function() {
-  let currentId = 91;
+  let currentId = 101;
   const examsList = [
+    { year: 2026, month: "Ağustos", title: "2026 Ağustos Ehliyet Sınavı" },
+    { year: 2026, month: "Temmuz", title: "2026 Temmuz Ehliyet Sınavı" },
     { year: 2026, month: "Haziran", title: "2026 Haziran Ehliyet Sınavı" },
     { year: 2026, month: "Mayıs", title: "2026 Mayıs Ehliyet Sınavı" },
     { year: 2026, month: "Nisan", title: "2026 Nisan Ehliyet Sınavı" },

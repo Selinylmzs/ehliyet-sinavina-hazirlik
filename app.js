@@ -3,6 +3,26 @@
  * Router, Sınav Motoru, Sonuç Analizör ve LocalStorage Yönetimi
  */
 
+// --- GÜVENLİK: HTTPS ZORLAMA ---
+if (window.location.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+  window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash);
+}
+
+// --- GÜVENLİK: DOM XSS KORUMASI (SANİTİZASYON) ---
+function escapeHTML(str) {
+  if (typeof str !== "string") return str;
+  return str.replace(/[&<>"']/g, function(m) {
+    switch (m) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#039;';
+      default: return m;
+    }
+  });
+}
+
 // --- UYGULAMA DURUMU (STATE) ---
 const state = {
   activeView: "dashboard",
@@ -1350,9 +1370,9 @@ function setupEventListeners() {
 // --- YÖNETİM PANELİ KONTROLLERİ ---
 function handleAddExam(e) {
   e.preventDefault();
-  const title = document.getElementById("exam-title-input").value.trim();
+  const title = escapeHTML(document.getElementById("exam-title-input").value.trim());
   const year = parseInt(document.getElementById("exam-year-input").value);
-  const month = document.getElementById("exam-month-input").value;
+  const month = escapeHTML(document.getElementById("exam-month-input").value);
   const duration = parseInt(document.getElementById("exam-duration-input").value) || 45;
 
   const exists = CUSTOM_EXAMS.some(ex => ex.year == year && ex.month === month);
@@ -1385,14 +1405,14 @@ function handleAddQuestion(e) {
 
   const [year, month, examTitle] = examKey.split("|");
   const category = document.getElementById("question-category-select").value;
-  const questionText = document.getElementById("question-text-input").value.trim();
-  const optA = document.getElementById("opt-a-input").value.trim();
-  const optB = document.getElementById("opt-b-input").value.trim();
-  const optC = document.getElementById("opt-c-input").value.trim();
-  const optD = document.getElementById("opt-d-input").value.trim();
+  const questionText = escapeHTML(document.getElementById("question-text-input").value.trim());
+  const optA = escapeHTML(document.getElementById("opt-a-input").value.trim());
+  const optB = escapeHTML(document.getElementById("opt-b-input").value.trim());
+  const optC = escapeHTML(document.getElementById("opt-c-input").value.trim());
+  const optD = escapeHTML(document.getElementById("opt-d-input").value.trim());
   const correctOption = document.getElementById("correct-opt-select").value;
-  const imageUrl = document.getElementById("question-image-url-input").value.trim();
-  const explanation = document.getElementById("explanation-input").value.trim();
+  const imageUrl = escapeHTML(document.getElementById("question-image-url-input").value.trim());
+  const explanation = escapeHTML(document.getElementById("explanation-input").value.trim());
 
   const newQuestion = {
     id: "custom_" + Date.now() + "_" + Math.floor(Math.random() * 1000),
@@ -1554,14 +1574,43 @@ function importCustomData() {
 
     CUSTOM_EXAMS = [...CUSTOM_EXAMS];
     parsed.exams.forEach(newEx => {
-      const exists = CUSTOM_EXAMS.some(ex => ex.year == newEx.year && ex.month === newEx.month);
-      if (!exists) CUSTOM_EXAMS.push(newEx);
+      if (newEx && newEx.title && newEx.year && newEx.month) {
+        const sanitizedEx = {
+          title: escapeHTML(newEx.title),
+          year: parseInt(newEx.year),
+          month: escapeHTML(newEx.month),
+          duration_minutes: parseInt(newEx.duration_minutes) || 45
+        };
+        const exists = CUSTOM_EXAMS.some(ex => ex.year == sanitizedEx.year && ex.month === sanitizedEx.month);
+        if (!exists) CUSTOM_EXAMS.push(sanitizedEx);
+      }
     });
 
     CUSTOM_QUESTIONS = [...CUSTOM_QUESTIONS];
     parsed.questions.forEach(newQ => {
-      const exists = CUSTOM_QUESTIONS.some(q => q.id === newQ.id);
-      if (!exists) CUSTOM_QUESTIONS.push(newQ);
+      if (newQ && newQ.id && newQ.category && newQ.question && newQ.options && newQ.correct) {
+        const sanitizedQ = {
+          id: escapeHTML(String(newQ.id)),
+          category: escapeHTML(newQ.category),
+          question: escapeHTML(newQ.question),
+          options: {
+            A: escapeHTML(newQ.options.A),
+            B: escapeHTML(newQ.options.B),
+            C: escapeHTML(newQ.options.C),
+            D: escapeHTML(newQ.options.D)
+          },
+          correct: escapeHTML(newQ.correct),
+          image_url: newQ.image_url ? escapeHTML(newQ.image_url) : null,
+          explanation: newQ.explanation ? escapeHTML(newQ.explanation) : "",
+          exam: newQ.exam ? {
+            year: parseInt(newQ.exam.year),
+            month: escapeHTML(newQ.exam.month),
+            title: escapeHTML(newQ.exam.title)
+          } : null
+        };
+        const exists = CUSTOM_QUESTIONS.some(q => q.id === sanitizedQ.id);
+        if (!exists) CUSTOM_QUESTIONS.push(sanitizedQ);
+      }
     });
 
     localStorage.setItem("ehliyet-custom-exams", JSON.stringify(CUSTOM_EXAMS));

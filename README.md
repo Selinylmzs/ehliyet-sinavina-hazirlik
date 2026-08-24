@@ -1,4 +1,4 @@
-# Ehliyet Sınavına Hazırlık Web Sitesi
+# Ehliyet Sınavı Hazırlık Web Sitesi
 
 Bu proje, kullanıcıların çıkmış ehliyet sınav sorularını (yıl ve ay bazında kategorize edilmiş olarak) çözebilecekleri, konu kategorilerine göre (İlk Yardım, Trafik, Motor, Trafik Adabı) çalışabilecekleri, sınav sürelerini ve başarı oranlarını modern bir grafik arayüzle takip edebilecekleri, mobil uyumlu ve şık bir Single Page Application (SPA) web uygulamasıdır.
 
@@ -37,7 +37,7 @@ Uygulama, veritabanı yapısı (SQL şemaları ve Express.js API rotaları) dahi
 - **Yapay Zeka Destekli Sesli Okuma:** Sınav veya inceleme ekranında soruların ve şıkların tarayıcının yerel TTS motoru (`Web Speech API`) kullanılarak sesli okunabilmesi.
 - **Oyunlaştırma (Gamification):** Çözülen her sınav ve soru sonucunda kazanılan XP puanları ile seviye atlama (Stajyer Sürücü -> Direksiyon Ustası).
 - **Günün Sorusu:** Her gün tarih tabanlı olarak değişen ve kullanıcıyı her gün test eden deterministik algoritmalı günlük soru widget'ı.
-- **Dinamik Soru Havuzu:** RAM üzerinde çalışan dinamik veri çoğaltma (data hydration) motoru sayesinde ham soruları benzersiz soruya çıkaran ve tüm konu testleri ile çıkmış sınavları otomatik 50 soruya tamamlayan sınav motoru.
+- **Dinamik 550 Soru Havuzu:** RAM üzerinde çalışan dinamik veri çoğaltma (data hydration) motoru sayesinde ham soruları 550 adet benzersiz soruya çıkaran ve tüm konu testlerini ile çıkmış sınavları otomatik 50 soruya tamamlayan sınav motoru.
 
 ### 3. Backend & Veritabanı Yapısı (`/backend` klasöründe)
 - **SQL Şeması (`backend/database.sql`):** İlişkisel veritabanı tasarımı (SQLite, PostgreSQL, MySQL uyumlu). Kullanıcılar, kategoriler, sınavlar, sorular, kullanıcı sınavları ve kullanıcı cevapları arasındaki ilişkileri tutar.
