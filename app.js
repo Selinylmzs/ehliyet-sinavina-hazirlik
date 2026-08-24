@@ -143,7 +143,7 @@ function initRouter() {
   const views = ["dashboard", "exam", "results", "review", "history", "admin"];
   
   // SPA yönlendirme fonksiyonu
-  window.navigateTo = (viewName) => {
+  window.navigateTo = (viewName, isExamsScroll = false) => {
     // Yönetim paneli şifre koruması
     if (viewName === "admin") {
       const navAdminBtn = document.getElementById("nav-admin");
@@ -177,7 +177,7 @@ function initRouter() {
     if (activeEl) activeEl.classList.remove("hidden");
     
     // Navigasyon butonlarını güncelle
-    updateNavButtons(viewName);
+    updateNavButtons(viewName, isExamsScroll);
     
     // Geçmiş sayfası açıldığında listeyi yenile
     if (viewName === "history") {
@@ -196,28 +196,37 @@ function initRouter() {
       renderAdminExamDropdown();
     }
     
-    // Sayfanın en üstüne odaklan
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Sayfanın en üstüne odaklan (Eğer sınavlar alanına kaydırılmayacaksa)
+    if (!isExamsScroll) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 }
 
-function updateNavButtons(activeView) {
+function updateNavButtons(activeView, isExamsScroll = false) {
   const navHome = document.getElementById("nav-home");
   const navHistory = document.getElementById("nav-history");
   const navAdmin = document.getElementById("nav-admin");
+  const navExams = document.getElementById("nav-exams");
   const mNavHome = document.getElementById("m-nav-home");
   const mNavHistory = document.getElementById("m-nav-history");
   const mNavAdmin = document.getElementById("m-nav-admin");
+  const mNavExams = document.getElementById("m-nav-exams");
   
   // Reset
-  [navHome, navHistory, navAdmin, mNavHome, mNavHistory, mNavAdmin].forEach(btn => {
+  [navHome, navHistory, navAdmin, navExams, mNavHome, mNavHistory, mNavAdmin, mNavExams].forEach(btn => {
     if (btn) btn.classList.remove("active");
   });
   
   // Set Active
   if (activeView === "dashboard") {
-    if (navHome) navHome.classList.add("active");
-    if (mNavHome) mNavHome.classList.add("active");
+    if (isExamsScroll) {
+      if (navExams) navExams.classList.add("active");
+      if (mNavExams) mNavExams.classList.add("active");
+    } else {
+      if (navHome) navHome.classList.add("active");
+      if (mNavHome) mNavHome.classList.add("active");
+    }
   } else if (activeView === "history") {
     if (navHistory) navHistory.classList.add("active");
     if (mNavHistory) mNavHistory.classList.add("active");
@@ -1252,6 +1261,17 @@ function setupEventListeners() {
   document.getElementById("nav-home").addEventListener("click", () => navigateTo("dashboard"));
   document.getElementById("nav-history").addEventListener("click", () => navigateTo("history"));
   
+  const navExams = document.getElementById("nav-exams");
+  if (navExams) {
+    navExams.addEventListener("click", () => {
+      navigateTo("dashboard", true);
+      setTimeout(() => {
+        const el = document.getElementById("exams-section");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    });
+  }
+  
   const navAdmin = document.getElementById("nav-admin");
   if (navAdmin) {
     navAdmin.addEventListener("click", () => navigateTo("admin"));
@@ -1260,6 +1280,17 @@ function setupEventListeners() {
   // Mobil Yönlendirme Olayları
   document.getElementById("m-nav-home").addEventListener("click", () => navigateTo("dashboard"));
   document.getElementById("m-nav-history").addEventListener("click", () => navigateTo("history"));
+  
+  const mNavExams = document.getElementById("m-nav-exams");
+  if (mNavExams) {
+    mNavExams.addEventListener("click", () => {
+      navigateTo("dashboard", true);
+      setTimeout(() => {
+        const el = document.getElementById("exams-section");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    });
+  }
   
   const mNavAdmin = document.getElementById("m-nav-admin");
   if (mNavAdmin) {
